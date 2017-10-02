@@ -18,9 +18,6 @@ export default class App extends Component {
       pln: "",
       validationError: false
     }
-    this.apiURL = "http://api.nbp.pl/api/exchangerates/tables/A/?format=json",
-    // this.apiURL = 'http://api.nbp.pl/api/exchangerates/rates/A/978/?format=json'
-    // //euro
     this.add = this
       .add
       .bind(this);
@@ -38,8 +35,9 @@ export default class App extends Component {
       .bind(this);
   }
   componentWillMount() {
+    let apiURL = "http://api.nbp.pl/api/exchangerates/tables/A/?format=json";
     axios
-      .get(this.apiURL)
+      .get(apiURL)
       .then((res) => {
         const apiExchangeRate = res.data[0].rates[7].mid;
         //const apiExchangeRate = res.data.rates[0].mid;
@@ -71,12 +69,12 @@ export default class App extends Component {
       },
       ...this.state.list
     ]
-    isNameValid && this.state.amount != 0
+    isNameValid && this.state.amount !== 0
       ? this.setState({list: newList, name: "", amount: ""})
       : this.setState({validationError: true, name: "", amount: ""});
     let updatedList = this.state.list;
     updatedList = newList;
-    if (isNameValid && this.state.amount != 0) {
+    if (isNameValid && this.state.amount !== 0) {
       this.setState({storedList: updatedList})
       this.updatedLocalStorage(updatedList)
     } else {

@@ -5,9 +5,6 @@ import BiggestTransaction from "./BiggestTransaction";
 import RemoveAll from "./RemoveAll";
 
 export default class TransactionList extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     const listItems = this
       .props
