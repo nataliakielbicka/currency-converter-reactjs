@@ -1,0 +1,22 @@
+%box-border {
+    box-shadow: 1px 1px 10px $grey;
+    border-radius: 4px;
+}
+%value {
+    color: $accent;
+    font-weight: bold;
+    font-size: 110%;
+    margin: 0 0 0 10px;
+}
+%bold-text {
+    font-weight: bold;
+    font-size: 120%;
+}
+%bold-text2 {
+    font-weight: bold;
+    font-size: 130%;
+}
+%margin-upp {
+    margin: 0 0 20px 0;
+    text-transform: uppercase;
+}

@@ -1,0 +1,55 @@
+.currency {
+    background-color: #fff;
+    @extend %box-border;
+    height: 100%;
+    margin: 20px auto;
+    max-width: 90%;
+    overflow: hidden;
+    padding: 0 0 50px 0;
+    position: relative;
+    @media all and (min-width: $tablet) {
+      max-width: 980px;
+    }
+    @media all and (min-width: $desktop) {
+      max-width: 800px;
+    }
+    &__title,
+    &__exchange {
+      color: #fff;
+      margin: 0;
+      text-align: center;
+    }
+    &__title {
+      background-color: $main;
+      padding: 10px 0 20px 0;
+    }
+    &__exchange {
+      background-color: $main2;
+      padding: 10px 0;
+    }
+    &__rate {
+      font-size: 130%;
+      margin: 0 5px;
+    }
+    &__add-transation {
+      padding: 0 30px;
+    }
+    &__remove-all {
+      clear: both;
+      color: $dark;
+      display: block;
+      text-decoration: underline;
+    }
+    &__footer {
+      width: 100%;
+      background-color: $main;
+      clear: both;
+      color: #fff;
+      display: block;
+      margin: 50px 0 0 0;
+      bottom: 0;
+      text-align: center;
+      padding: 5px 0;
+      position: absolute;
+    }
+}

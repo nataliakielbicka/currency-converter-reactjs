@@ -1,0 +1,72 @@
+.transaction-list {
+    overflow: hidden;
+    padding: 10px 40px;
+    &__list {
+      margin: 40px 0 0 0;
+      padding: 0;
+      width: 100%;
+      @media all and (min-width: $tablet) {
+        width: 60%;
+        float: left;
+        height: 335px;
+        margin: 20px 0 0 0;
+        overflow-y: scroll;
+      }
+    }
+}
+  
+.item {
+    background-color: #fff;
+    border: 2px solid $light;
+    @extend %box-border;
+    color: $dark;
+    display: block;
+    list-style: none;
+    margin: 0 0 20px 0;
+    overflow: hidden;
+    padding: 10px;
+    position: relative;
+    width: 100%;
+    @media all and (min-width: $tablet) {
+      width: 98%;
+    }
+    &__name {
+      color: $accent;
+      display: block;
+      @extend %bold-text2;
+      @extend %margin-upp;
+    }
+    &__amount {
+      display: block;
+      @media all and (min-width: $phone) {
+        width: 45%;
+        float: left;
+      }
+    }
+    &__value {
+      @extend %bold-text;
+      margin: 0 0 0 10px;
+    }
+    &__remove {
+      width: 40px;
+      height: 40px;
+      background-color: $main;
+      border-radius: 50%;
+      border: 2px solid $main;
+      box-shadow: 1px 1px 10px $grey;
+      color: #fff;
+      cursor: pointer;
+      @extend %bold-text;
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      text-align: center;
+      transform: translate(0,-50%);
+      &:hover {
+        background-color: #fff;
+        border-color: $main;
+        color: $main;
+        transition: 0.3s ease-in;
+      }
+    }
+}

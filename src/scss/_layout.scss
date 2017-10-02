@@ -1,0 +1,12 @@
+* {
+    box-sizing: border-box;
+}
+html {
+  height: 100%;
+}
+body {
+  background-color: $light;
+  color: $dark;
+  font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
+  height: 100%;
+}

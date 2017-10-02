@@ -1,0 +1,29 @@
+.max-transaction,
+.total {
+  width: 100%;
+  text-align: center;
+  @media all and (min-width: $tablet) {
+    width: 40%;
+    float: left;
+  }
+  &__title,
+  &__desc {
+    color: $main;
+    @extend %margin-upp;
+  }
+  &__value {
+    @extend %value;
+  }
+}
+
+.max-transaction {
+  padding: 15px;
+  &__name {
+    @extend %bold-text;
+    margin: 0;
+    text-transform: uppercase;
+  }
+}
+.total {
+  padding: 40px 15px;
+}

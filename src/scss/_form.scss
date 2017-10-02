@@ -1,0 +1,67 @@
+.add-transaction {
+    &__title {
+      margin: 10px 0 20px 10px;
+    }
+}
+  
+.form {
+    position: relative;
+    &__col {
+      width: 100%;
+      float: left;
+      margin: 0 0 15px 0;
+      padding: 10px;
+      @media all and (min-width: $phone) {
+        width: 50%;
+      }
+    }
+    &__label,
+    &__input {
+      width: 100%;
+    }
+    &__label {
+      color: $accent;
+      display: block;
+      @extend %bold-text2;
+      margin: 0 0 5px 0;
+    }
+    &__input {
+      background-color: rgba($main,0.2);
+      border: none;
+      @extend %box-border;
+      padding: 10px;
+    }
+    &__btn {
+      border: 2px solid $accent;
+      background-color: $accent;
+      @extend %box-border;
+      color: #fff;
+      cursor: pointer;
+      clear: both;
+      display: block;
+      font-weight: bold;
+      margin: 20px auto;
+      padding: 10px;
+      text-transform: uppercase;
+      width: 100%;
+      max-width: 96%;
+      @media all and (min-width: $phone) {
+        width: 50%;
+        max-width: 250px;
+      }
+      &:hover {
+        border-color: $accent;
+        background-color: #fff;
+        color: $accent;
+        transition: 0.3s ease-in;
+      }
+    }
+    &__error {
+      color: red;
+      font-size: 90%;
+      font-weight: bold;
+      position: absolute;
+      text-align: center;
+      width: 100%;
+    }
+}
