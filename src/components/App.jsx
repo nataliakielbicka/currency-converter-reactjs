@@ -69,16 +69,16 @@ export default class App extends Component {
       },
       ...this.state.list
     ]
-    isNameValid && this.state.amount !== 0
+    isNameValid && this.state.amount
       ? this.setState({list: newList, name: "", amount: ""})
-      : this.setState({validationError: true, name: "", amount: ""});
+      : this.setState({validationError: true, name: this.state.name, amount: this.state.amount});
     let updatedList = this.state.list;
     updatedList = newList;
     if (isNameValid && this.state.amount !== 0) {
       this.setState({storedList: updatedList})
       this.updatedLocalStorage(updatedList)
     } else {
-      this.setState({validationError: true, name: "", amount: ""});
+      this.setState({validationError: true, name: this.state.name, amount: this.state.amount});
     }
   }
   remove(index) {
