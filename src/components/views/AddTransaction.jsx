@@ -1,7 +1,8 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
 
-import ValidationError from "./ValidationError";
+import ValidationNameError from "./ValidationNameError";
+import ValidationAmountError from "./ValidationAmountError";
 
 export default class AddTransaction extends Component {
   render() {
@@ -24,16 +25,21 @@ export default class AddTransaction extends Component {
             <input
               type="number"
               id="transactionValue"
-              min="0"
               value={this.props.amount}
               onChange={this.props.handleAmountChange}
               className="form__input"/>
           </div>
           <button className="form__btn" onClick={this.props.addItem}>add transaction</button>
-          {this.props.validationError
-            ? <ValidationError/>
-            : null
+          <div className="form__errors">
+            {this.props.validationNameError
+              ? <ValidationNameError/>
+              : null
 }
+            {this.props.validationAmountError
+              ? <ValidationAmountError/>
+              : null
+}
+          </div>
         </form>
       </div>
     )

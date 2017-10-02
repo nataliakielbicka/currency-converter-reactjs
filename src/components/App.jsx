@@ -16,7 +16,8 @@ export default class App extends Component {
       name: "",
       amount: "",
       pln: "",
-      validationError: false
+      validationNameError: false,
+      validationAmountError: false
     }
     this.add = this
       .add
@@ -40,18 +41,18 @@ export default class App extends Component {
       .get(apiURL)
       .then((res) => {
         const apiExchangeRate = res.data[0].rates[7].mid;
-        //const apiExchangeRate = res.data.rates[0].mid;
         this.setState({exchangeRate: apiExchangeRate});
       });
   }
   handleNameChange(e) {
     let nameVal = e.target.value;
-    this.setState({name: nameVal, validationError: false})
+    this.setState({name: nameVal, validationNameError: false})
   }
   handleAmountChange(e) {
     let amountVal = e.target.value;
     this.setState({
-      amount: + amountVal
+      amount: + amountVal,
+      validationAmountError: false
     })
   }
   add(e) {
@@ -59,8 +60,13 @@ export default class App extends Component {
     let nameVal = document
       .getElementById("transactionName")
       .value;
+    let amountVal = document
+      .getElementById("transactionValue")
+      .value;
     const nameValidator = new RegExp("^[a-zA-Z ]+$");
+    const amountValidator = new RegExp("^[0-9]+$");
     const isNameValid = nameValidator.test(nameVal);
+    const isAmountValid = amountValidator.test(amountVal);
     const newList = [
       {
         name: this.state.name,
@@ -69,16 +75,20 @@ export default class App extends Component {
       },
       ...this.state.list
     ]
-    isNameValid && this.state.amount
-      ? this.setState({list: newList, name: "", amount: ""})
-      : this.setState({validationError: true, name: this.state.name, amount: this.state.amount});
+    if (isNameValid && isAmountValid) {
+      this.setState({list: newList, name: "", amount: ""})
+    } else if (isNameValid && !isAmountValid) {
+      this.setState({validationAmountError: true, name: this.state.name, amount: ""})
+    } else if (!isNameValid && isAmountValid) {
+      this.setState({validationNameError: true, name: "", amount: this.state.amount})
+    } else {
+      this.setState({validationNameError: true, validationAmountError: true, name: "", amount: ""})
+    }
     let updatedList = this.state.list;
     updatedList = newList;
-    if (isNameValid && this.state.amount !== 0) {
+    if (isNameValid && isAmountValid) {
       this.setState({storedList: updatedList})
       this.updatedLocalStorage(updatedList)
-    } else {
-      this.setState({validationError: true, name: this.state.name, amount: this.state.amount});
     }
   }
   remove(index) {
@@ -118,7 +128,8 @@ export default class App extends Component {
           handleNameChange={this.handleNameChange}
           handleAmountChange={this.handleAmountChange}
           list={this.state.list}
-          validationError={this.state.validationError}/>
+          validationNameError={this.state.validationNameError}
+          validationAmountError={this.state.validationAmountError}/>
         <TransactionList
           list={this.state.list}
           removeListItem={this.remove}

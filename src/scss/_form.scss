@@ -56,11 +56,15 @@
         transition: 0.3s ease-in;
       }
     }
+    &__errors {
+      width: 100%;
+      position: absolute;
+      text-align: center;
+    }
     &__error {
       color: red;
       font-size: 90%;
       font-weight: bold;
-      position: absolute;
       text-align: center;
       width: 100%;
     }
