@@ -64,7 +64,7 @@ export default class App extends Component {
       .getElementById("transactionValue")
       .value;
     const nameValidator = new RegExp("^[a-zA-Z ]+$");
-    const amountValidator = new RegExp("^-?[0-9]+$");
+    const amountValidator = new RegExp("^(?!0.)\\d+$");
     const isNameValid = nameValidator.test(nameVal);
     const isAmountValid = amountValidator.test(amountVal);
     const newList = [
