@@ -1,4 +1,6 @@
 import React, {Component} from "react";
+import PropTypes from "prop-types";
+
 import TransactionItem from "./TransactionItem";
 import SumTransaction from "./SumTransaction";
 import BiggestTransaction from "./BiggestTransaction";
@@ -62,3 +64,8 @@ export default class TransactionList extends Component {
     );
   }
 }
+
+TransactionList.propTypes = {
+  list: PropTypes.array.isRequired
+}
+
