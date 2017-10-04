@@ -116,22 +116,31 @@ export default class App extends Component {
     localStorage.setItem("storedTasks", JSON.stringify(updatedList));
   }
   render() {
+    const {
+      exchangeRate,
+      name,
+      amount,
+      pln,
+      list,
+      validationNameError,
+      validationAmountError
+    } = this.state
     return (
       <div className="currency">
         <Title/>
-        <ExchangeRate exchangeRate={this.state.exchangeRate}/>
+        <ExchangeRate exchangeRate={exchangeRate}/>
         <AddTransaction
           addItem={this.add}
-          name={this.state.name}
-          amount={this.state.amount}
-          pln={this.state.pln}
+          name={name}
+          amount={amount}
+          pln={pln}
           handleNameChange={this.handleNameChange}
           handleAmountChange={this.handleAmountChange}
-          list={this.state.list}
-          validationNameError={this.state.validationNameError}
-          validationAmountError={this.state.validationAmountError}/>
+          list={list}
+          validationNameError={validationNameError}
+          validationAmountError={validationAmountError}/>
         <TransactionList
-          list={this.state.list}
+          list={list}
           removeListItem={this.remove}
           removeAll={this.removeAll}/>
         <Footer/>

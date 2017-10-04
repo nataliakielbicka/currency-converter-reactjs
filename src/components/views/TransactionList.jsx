@@ -6,6 +6,7 @@ import RemoveAll from "./RemoveAll";
 
 export default class TransactionList extends Component {
   render() {
+    const {removeAll} = this.props;
     const listItems = this
       .props
       .list
@@ -53,7 +54,7 @@ export default class TransactionList extends Component {
               <SumTransaction
                 totalAmountEuro={totalAmountEuro}
                 totalAmountPln={totalAmountPln}/>
-              <RemoveAll removeAll={this.props.removeAll}/>
+              <RemoveAll removeAll={removeAll}/>
             </div>
           )
           : null}

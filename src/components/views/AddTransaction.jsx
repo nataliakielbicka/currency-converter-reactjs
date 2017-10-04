@@ -6,6 +6,15 @@ import ValidationAmountError from "./ValidationAmountError";
 
 export default class AddTransaction extends Component {
   render() {
+    const {
+      name,
+      amount,
+      handleNameChange,
+      handleAmountChange,
+      addItem,
+      validationNameError,
+      validationAmountError
+    } = this.props;
     return (
       <div className="currency__add-transation add-transaction">
         <h2 className="add-transaction__title">Add Transaction</h2>
@@ -16,8 +25,8 @@ export default class AddTransaction extends Component {
               type="text"
               name="transactionName"
               id="transactionName"
-              value={this.props.name}
-              onChange={this.props.handleNameChange}
+              value={name}
+              onChange={handleNameChange}
               className="form__input"/>
           </div>
           <div className="form__col">
@@ -25,17 +34,17 @@ export default class AddTransaction extends Component {
             <input
               type="number"
               id="transactionValue"
-              value={this.props.amount}
-              onChange={this.props.handleAmountChange}
+              value={amount}
+              onChange={handleAmountChange}
               className="form__input"/>
           </div>
-          <button className="form__btn" onClick={this.props.addItem}>add transaction</button>
+          <button className="form__btn" onClick={addItem}>add transaction</button>
           <div className="form__errors">
-            {this.props.validationNameError
+            {validationNameError
               ? <ValidationNameError/>
               : null
 }
-            {this.props.validationAmountError
+            {validationAmountError
               ? <ValidationAmountError/>
               : null
 }
