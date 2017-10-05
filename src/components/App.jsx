@@ -35,7 +35,7 @@ export default class App extends Component {
       .removeAll
       .bind(this);
   }
-  componentWillMount() {
+  componentDidMount() {
     let apiURL = "https://api.nbp.pl/api/exchangerates/tables/A/?format=json";
     axios
       .get(apiURL)
