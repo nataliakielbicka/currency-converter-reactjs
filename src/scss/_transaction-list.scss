@@ -70,3 +70,27 @@
       }
     }
 }
+
+.item-enter,
+.item-appear {  
+  opacity: 0;  
+  transform: translateX(-250px); 
+  &.item-enter-active,
+  &.item-appear-active {  
+    opacity: 1;  
+    transform: translateX(0);  
+    transition: 0.5s; 
+  }
+} 
+
+.item-leave {  
+  opacity: 1;  
+  transform: translateX(0); 
+  &.item-leave-active {  
+    opacity: 0;  
+    transform: translateX(250px);  
+    transition: 0.3s; 
+  }
+}
+
+

@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
+import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 
 import TransactionItem from "./TransactionItem";
 import SumTransaction from "./SumTransaction";
@@ -44,7 +45,14 @@ export default class TransactionList extends Component {
     return (
       <div className="currency__transaction-list transaction-list">
         <ul className="transaction-list__list">
-          {listItems}
+          <ReactCSSTransitionGroup
+            transitionName="item"
+            transitionEnterTimeout={300}
+            transitionLeaveTimeout={300}
+            transitionAppear={true}
+            transitionAppearTimeout={300}>
+            {listItems}
+          </ReactCSSTransitionGroup>
         </ul>
         {listItems.length
           ? (
@@ -68,4 +76,3 @@ export default class TransactionList extends Component {
 TransactionList.propTypes = {
   list: PropTypes.array.isRequired
 }
-
