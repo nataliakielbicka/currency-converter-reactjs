@@ -38,14 +38,10 @@
     }
     &__amount {
       display: block;
-      @media all and (min-width: $phone) {
-        width: 45%;
-        float: left;
-      }
     }
     &__value {
       @extend %bold-text;
-      margin: 0 0 0 10px;
+      margin: 0 0 0 5px;
     }
     &__remove {
       width: 35px;
